@@ -1,0 +1,46 @@
+{% load static %}
+<!-- Rodapé -->
+<footer class="footer">
+    <ul class="sobre">
+        <li><h3>Sobre</h3></li>
+        <li><a href="sobre.html">Quem somos</a></li>
+        <li><a href="sobre.html">Como a Yupix funciona</a></li>
+        <li><a href="sobre.html">Parcerias</a></li>
+    </ul>
+    
+    <ul class="serviços">
+        <li><h3>Serviços</h3></li>
+        <li><a href="servicos.html">Categorias Yupix</a></li>
+
+        <li><a href="mobile.html">Downloads</a></li>
+    </ul>
+    
+    <ul class="contatos">
+        <li><h3>Contato</h3></li>
+        <li><a href="{% url "usuarios:contato" %}">Suporte</a></li>
+        <li><a href="{% url "usuarios:contato" %}">Comentários</a></li>
+        <li><a href="{% url "usuarios:contato" %}">Avalie-nos</a></li>
+    </ul>
+    
+    <!-- Botoes Redes Sociais -->
+    <nav class="botoes_inferiores">
+        <ul>
+            <li><a href="https://www.facebook.com"><i class="fab fa-facebook"></i></a></li>
+            <li><a href="https://twitter.com"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="https://www.youtube.com"><i class="fab fa-youtube"></i></a></li>
+            <li><a href="https://www.linkedin.com"><i class="fab fa-linkedin-in"></i></a></li>
+            <li><a href="https://www.instagram.com"><i class="fab fa-instagram"></i></a></li>
+        </ul>
+    </nav>
+    
+    <!-- Ícones de Download -->
+    <ul class="icones_download">
+        <li><a href="https://apps.apple.com"><img src="{% static "global/img/app_store_icone.png" %}"></a></li>
+        <li><a href="https://play.google.com"><img src="{% static "global/img/google_play_icone.png" %}"></a></li>
+    </ul>
+    
+    <div class="footer_absoluto">
+        <a href="index.html" class="logo"><h1>Yupix</h1></a>
+    </div>
+</footer>
+<!-- Fim Rodapé -->

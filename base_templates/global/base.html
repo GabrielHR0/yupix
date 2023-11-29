@@ -4,8 +4,13 @@
     {% include "global/partials/_head.html" %}
 </head>
 <body>
-    <main>
-        {% block content %}{% endblock content %}
-    </main>
+    {% include "global/partials/_header.html" %}
+    {% include "global/partials/_sidenav.html" %}
+    <div class="estrutura">
+        <main class="content">
+            {% block content %}{% endblock content %}
+        </main>
+        {% include "global/partials/_footer.html" %}
+    </div>
 </body>
 </html>

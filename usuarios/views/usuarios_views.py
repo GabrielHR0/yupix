@@ -14,5 +14,16 @@ def index(request):
         context,
         )
 
+def contato(request):
+    context = {
+        'site_title':'Contato',
+    }
+
+    return render(
+        request,
+        'usuarios/contato.html',
+        context,
+    )
+
 def usuarios(request, contact_id):
     ...

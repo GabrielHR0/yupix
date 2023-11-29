@@ -1,55 +1,7 @@
 {% extends "global/base.html" %}
-
+{% load static %}
 
 {% block content %}
-<div class="estrutura">
-            
-    <!-- Cabeçalho -->
-    <header class="header">
-        
-        <!-- Logo -->
-        <a href="index.html" class="logo"><h1>Yupix</h1></a>
-        
-        <!-- Barra de navegação -->
-        <nav class="nav">
-            <ul>
-                <li><a href="sobre.html">Sobre</a></li>
-                <li><a href="servicos.html">Serviços</a></li>
-                <li><a href="contato.html">Contato</a></li>
-                <i class="far fa-user"></i>
-                <li><a href="login.html">Entrar</a></li>
-                <li><a href="register.html">Cadastrar</a></li>
-            </ul>
-        </nav>
-        
-    </header>
-    <!-- Fim Cabeçalho -->
-    
-    <!-- Navegação Lateral -->
-    <nav class="sidenav">
-        <ul>
-            
-            <li class="side_logo">
-                <a href="index.html"><i><img src="img/yupix_logo.png" alt=""></i><span>Yupix</span></a>
-            </li>
-            
-            <!-- Ícones -->
-            <li>
-                <a href="servicos.html"><i class="fas fa-th-large" style="color: #ffd700"></i><span>Serviços</span></a>
-            </li>
-            <li>
-                <a href="contato.html"><i class="far fa-comments" style="color: #ffd700"></i><span>Comentários</span></a>
-            </li>
-            <li>
-                <a href="contato.html"><i class="far fa-question-circle" style="color: #ffd700"></i><span>Suporte</span></a>
-            </li>
-            <li>
-                <a href="contato.html"><i class="fas fa-star-half-alt" style="color: #ffd700"></i><span>Avalie-nos</span></a>
-            </li>
-        </ul>
-    </nav>
-    <!-- Fim Navegação Lateral -->
-    
     <!-- Conteúdo Principal -->
     <main class="content">
         
@@ -61,8 +13,8 @@
                     <p>Seja bem-vindo ao site da maior empresa de serviços terceirizados no mercado!</p>
                 </div>
                 <div class="botoes_painel">
-                     <a href="https://play.google.com"><img src="img/google_play.svg"></a>
-                    <a href="https://apps.apple.com"><img src="img/app_store.svg"></a>
+                     <a href="https://play.google.com"><img src="{% static "global\img\google_play.svg" %}"></a>
+                    <a href="https://apps.apple.com"><img src="{% static "global\img\app_store.svg" %}"></a>
                 </div>
             </div>
             
@@ -73,7 +25,7 @@
         
         <!-- Conheça-nos -->
         <div class="conheca_nos">
-            <img src="img/woker.png" alt="Quem somos">
+            <img src="{% static "global/img/woker.png" %}" alt="Quem somos">
             <div>
                 <h3>Conheça-nos</h3>
                 <p>Conheça um pouco sobre a nossa empresa, a história da Yupix e seus parceiros mais próximos.</p>
@@ -84,7 +36,7 @@
         
         <!-- Como funciona -->
         <div class="como_funciona bg_roxo">
-            <img src="img/phone.jpg">
+            <img src="{% static "global/img/phone.jpg" %}">
             <div>
                 <h3 style="color: #fff;">Como funciona</h3>
                 <p>Saiba como utilizar os serviços que a Yupix proporciona de forma rápida e prática, esclareça todas as suas dúvidas sobre o aplicativo e a plataforma.</p>
@@ -102,13 +54,13 @@
             </div>
 
             <div class="categorias">
-                <img src="img/categorias.png" alt="Categorias">
+                <img src="{% static "global/img/categorias.png" %}" alt="Categorias">
                 <h4>Categorias</h4>
                 <p>Um profissional para cada necessidade, descubra qual o tipo de serviço que melhor se encaixa a suas necessidades e ao seu bolso.</p>
             </div>
 
             <div class="mobile">
-                <img src="img/mobile_yupix.png">
+                <img src="{% static "global/img/mobile_yupix.png" %}">
                 <h4>Mobile</h4>
                 <p>Baixe agora o nosso aplicativo em seu smartphone Android ou IOs, é rápido e fácil.</p>
             </div>
@@ -129,51 +81,4 @@
         
     </main>
     <!-- Fim Conteúdo Principal -->
-    
-    <!-- Rodapé -->
-    <footer class="footer">
-        <ul class="sobre">
-            <li><h3>Sobre</h3></li>
-            <li><a href="sobre.html">Quem somos</a></li>
-            <li><a href="sobre.html">Como a Yupix funciona</a></li>
-            <li><a href="sobre.html">Parcerias</a></li>
-        </ul>
-        
-        <ul class="serviços">
-            <li><h3>Serviços</h3></li>
-            <li><a href="servicos.html">Categorias Yupix</a></li>
-
-            <li><a href="mobile.html">Downloads</a></li>
-        </ul>
-        
-        <ul class="contatos">
-            <li><h3>Contato</h3></li>
-            <li><a href="contato.html">Suporte</a></li>
-            <li><a href="contato.html">Comentários</a></li>
-            <li><a href="contato.html">Avalie-nos</a></li>
-        </ul>
-        
-        <!-- Botoes Redes Sociais -->
-        <nav class="botoes_inferiores">
-            <ul>
-                <li><a href="https://www.facebook.com"><i class="fab fa-facebook"></i></a></li>
-                <li><a href="https://twitter.com"><i class="fab fa-twitter"></i></a></li>
-                <li><a href="https://www.youtube.com"><i class="fab fa-youtube"></i></a></li>
-                <li><a href="https://www.linkedin.com"><i class="fab fa-linkedin-in"></i></a></li>
-                <li><a href="https://www.instagram.com"><i class="fab fa-instagram"></i></a></li>
-            </ul>
-        </nav>
-        
-        <!-- Ícones de Download -->
-        <ul class="icones_download">
-            <li><a href="https://apps.apple.com"><img src="img/app_store_icone.png"></a></li>
-            <li><a href="https://play.google.com"><img src="img/google_play_icone.png"></a></li>
-        </ul>
-        
-        <div class="footer_absoluto">
-            <a href="index.html" class="logo"><h1>Yupix</h1></a>
-        </div>
-    </footer>
-    <!-- Fim Rodapé -->
-</div>
 {% endblock content %}

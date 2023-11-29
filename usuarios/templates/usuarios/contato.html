@@ -1,0 +1,168 @@
+{% extends "global/base.html" %}
+{% load static %}
+
+{% block content %}
+        <!-- Conteúdo Principal -->  
+            <!-- Ínicio -->
+            <div class="bem_vindo">
+                <div>
+                    <div>
+                        <h2>Contato</h2>
+                        <p>Entre em contato conosco, oferecemos todo tipo de suporte aos nossos usuários, e se puder deixe
+                            seu comentário e avalie-nos.
+                        </p>
+                    </div>
+                    <div class="botoes_painel">
+                         <a href="https://play.google.com"><img src="{% static "global/img/google_play.svg" %}"></a>
+                        <a href="https://apps.apple.com"><img src="{% static "global/img/app_store.svg" %}"></a>
+                    </div>
+                </div>
+                
+                <iframe width="560" height="315" src="https://www.youtube.com" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                
+            </div>
+            <!-- Fim Ínicio -->
+            
+            <!-- Suporte -->
+            <div class="suporte">
+                <div class="mesclar">
+                    <h3>Suporte</h3>
+                    <p>Aqui você encontra nossos canais de atendimento e suporte ao usuário Yupix</p>
+                </div>
+
+                <div class="lista_contato mesclar">
+                    <ul>
+                        <li>E-mail</li>
+                        <li>Endereço</li>
+                       
+                    </ul>
+
+                    <ul>
+                        <li>suport@Yupix.com.br</li>
+                        <li>Rua Augusto Pinheiro, 002 - Upanema, RN</li>
+                    </ul>
+                </div>
+
+            </div>
+            <!-- Fim Suporte -->
+
+            <!-- Comentários -->
+            <div class="comentarios">
+                <div class="mesclar">
+                    <h3>Comentários</h3>
+                    <p>Deixe aqui o seu comentário, sugestão ou problema preenchendo o formulário abaixo
+                        e nossa equipe entrará em contato com você o mais rápido possível
+                    </p>
+                </div>
+
+                <!-- Formulário -->
+                <form class="mesclar" name="form_contato" action="#" method="POST">
+                    
+                    <fieldset>
+                        <fieldset class="form_grupo">
+
+                            <!-- Nome -->
+                            <div class="form_campo">
+                                <label for="nome">Nome</label>
+                                <input required="required" maxlength="10" type="text" name="nome" id="nome" value="" style="width: 10em;">
+                            </div>
+                            
+                            <!-- Sobrenome -->
+                            <div class="form_campo">
+                                <label for="snome">Sobrenome</label>
+                                <input required="required" maxlength="30" type="text" name="snome" id="snome" value="" style="width: 10em;">
+                            </div>
+                        </fieldset>
+
+                        <div class="form_campo">
+                            <!-- Sexo -->
+                            <label>Sexo</label>
+                            <label class="checkbox">
+                                <input required="required" type="radio" name="sexo" value="masculino"> Masculino
+                            </label>
+                            <label class="checkbox">
+                                <input required="required" type="radio" name="sexo" value="feminino"> Feminino
+                            </label>
+                        </div>
+                        
+                        <!-- E-mail -->
+                        <div class="form_campo">
+                            <label for="email">E-mail</label>
+                            <input required="required" maxlength="30" type="email" name="email" value="" style="width: 20em;">
+                        </div>
+
+                        <fieldset class="form_grupo">
+                            <!-- Cidade -->
+                            <div class="form_campo">
+                                <label for="cidade">Cidade</label>
+                                <input required="required" maxlength="20" type="text" name="cidade" value="" style="width: 10em;">
+                            </div>
+
+                            <!-- Estado -->
+                            <div class="form_campo">
+                                <label for="estado">Estado</label>
+                                <select required="required" name="estado" id="estado">
+                                    <option value="">-----</option>
+                                    <option value="AC">AC</option>
+                                    <option value="AM">AM</option>
+                                    <option value="BA">BA</option>
+                                    <option value="CE">CE</option>
+                                    <option value="DF">DF</option>
+                                    <option value="ES">ES</option>
+                                    <option value="GO">GO</option>
+                                    <option value="MA">MA</option>
+                                    <option value="MT">MT</option>
+                                    <option value="MS">MS</option>
+                                    <option value="MG">MG</option>
+                                    <option value="PA">PA</option>
+                                    <option value="PB">PB</option>
+                                    <option value="PR">PR</option>
+                                    <option value="PE">PE</option>
+                                    <option value="PI">PI</option>
+                                    <option value="RJ">RJ</option>
+                                    <option value="RN">RN</option>
+                                    <option value="RS">RS</option>
+                                    <option value="RO">RO</option>
+                                    <option value="RR">RR</option>
+                                    <option value="SC">SC</option>
+                                    <option value="SP">SP</option>
+                                    <option value="SE">SE</option>
+                                    <option value="TO">TO</option>
+                                </select>
+                            </div>
+                        </fieldset>
+                        
+                        <!-- Mensagem -->
+                        <div class="form_campo">
+                            <label for="mensagem">Mensagem</label>
+                            <textarea required="required" rows="6" id="mensagem" name="mensagem" style="width: 20em;"></textarea>
+                        </div>
+                        
+                        <!-- Newsletter -->
+                        <div class="form_campo">
+                            <label for="newsletter">Newsletter</label>
+                            <label class="checkbox">
+                                <input type="checkbox" name="newsletter" value="marcado" checked> 
+                                Gostaria de receber a Newsletter da Yupix?
+                            </label>
+                        </div>
+
+                        <!-- Avalie -->
+                        <div class="form_campo">
+                            <label for="avalie">Avalie o nosso site (0-5)</label>
+                            <input required="required" min="0" max="5" type="range" name="avalie" style="width: 20em;">
+                        </div>
+
+                        <button class="form_botao" type="submit" name="submit" onclick="validarContato()">Enviar</button>
+                    </fieldset>
+
+                </form>
+                <!-- Fim Formulário -->
+            </div>
+            <!-- Fim Comentários -->
+        <!-- Fim Conteúdo Principal -->
+
+    <!-- Arquivo JS -->
+    <script src="js/script.js"></script>
+
+{% endblock content %}
