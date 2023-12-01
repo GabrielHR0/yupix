@@ -2,17 +2,17 @@
 <header class="header">
         
     <!-- Logo -->
-    <a href="index.html" class="logo"><h1>Yupix</h1></a>
+    <a href="{% url "usuarios:index" %}" class="logo"><h1>Yupix</h1></a>
     
     <!-- Barra de navegação -->
     <nav class="nav">
         <ul>
-            <li><a href="sobre.html">Sobre</a></li>
-            <li><a href="servicos.html">Serviços</a></li>
-            <li><a href="contato.html">Contato</a></li>
+            <li><a href="{% url "usuarios:aboutus" %}">Sobre</a></li>
+            <li><a href="{% url "usuarios:services" %}">Serviços</a></li>
+            <li><a href="{% url "usuarios:contato" %}">Contato</a></li>
             <i class="far fa-user"></i>
-            <li><a href="login.html">Entrar</a></li>
-            <li><a href="register.html">Cadastrar</a></li>
+            <li><a href="{% url "usuarios:login" %}">Entrar</a></li>
+            <li><a href="{% url "usuarios:register2" %}">Cadastrar</a></li>
         </ul>
     </nav>
     

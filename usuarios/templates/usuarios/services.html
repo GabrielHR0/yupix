@@ -1,0 +1,77 @@
+{% extends "global/base.html" %}
+{% load static %}
+
+{% block content %}
+<!-- Categorias -->
+<div class="servicos_categorias bg_cinza">
+    <div class="mesclar">
+        <h3>Principais serviços</h3>
+        <p>Um profissional para cada necessidade, descubra qual o tipo de serviço que melhor se encaixa as suas necessidades e ao seu bolso.</p>
+    </div>
+
+    <div class="mesclar">
+        <h4>Montagem de móveis</h4>
+        <h5></h5>
+    </div>
+    <img src="{% static "global/img/moveis.jpg" %}" alt="Categorias">
+    <div class="moveis">
+        <p>Precisando de Montador de Móveis? Milhares de profissionais especializados em monatagem de móveis convencionais, corporativos, de aço, modulados, planejados dentre outros.</p>
+    </div>
+    
+    <div class="mesclar">
+        <h4>Mudanças e Carretos</h4>
+        <h5></h5>
+    </div>
+    <img src="{% static "global/img/fretes.png" %}" alt="fretes">
+    <div class="fretes">
+        <p>Precisando de Frete e Carreto de Mudança? Milhares de profissionais especializados em mudança comercial, interestadual, residencial, carros para frete e transporte especial seja de carga viva ou delicada</p>
+    </div>
+    
+    <div class="mesclar">
+        <h4>Serviço de Pedreiro</h4>
+        <h5></h5>
+    </div>
+    <img src="{% static "global/img/pedra.png" %}">
+    <div class="pedra">
+        <p>Precisando de Pedreiro? Milhares de profissionais especializados em calhas, construção em geral, forro, paredes e estruturas, pisos e revestimentos, portas e janelas, telhados e telhas dentre outros.</p>
+    </div>
+    
+    <div class="mesclar">
+        <h4>Serviço de Eletricista</h4>
+        <h5></h5>
+    </div>
+    <img src="{% static "global/img/eletro.jpg" %}">
+    <div class="eletro">
+        <p>Precisando de Eletricista? Milhares de profisionais especializados em certificados de instalação, conserto ou manuntenção, fiação elétrica, instalação, instalação de ar condicionado, instalação de ventilador de teto dentre outros.</p>
+    </div>
+    
+    <div class="mesclar">
+        <h4>Serviço de Pintura</h4>
+        <h5></h5>
+    </div>
+    <img src="{% static "global/img/pintor.jpg" %}">
+    <div class="pintura">
+        <p>Precisando de Pintor? Receba orçamentos de profissionais verificados e especializados na realização de pinturas em interiores e exteriores tanto em casas, apartamentos ou móveis. É rápido, prático e seguro.</p>
+    </div>
+</div>
+<!-- Fim Categorias -->
+
+<!-- Serviços -->
+<div class="servicos servicos_inferior">
+
+    <div class="uber_eats">
+        <img src="{% static "global/img/conosco.jpg" %}" alt="Uber Eats">
+        <h4>Trabalhe Conosco</h4>
+        <p>Se você é um profissional especializado na realização de qualquer tipo de serviço, não perca a oportunidade de entrar na maior plataforma de trabalhadores autônomos do brasil e conseguir uma renda extra.</p>
+        <a href="{% url "usuarios:register1" %}">Saiba mais<i class="fas fa-angle-right"></i></a>
+    </div>
+
+    <div class="mobile">
+        <img src="{% static "global/img/mobile_yupix.png" %}">
+        <h4>Mobile</h4>
+        <p>Baixe agora o nosso aplicativo em seu smartphone Android ou IOs, é rápido e fácil.</p>
+        <a href="{% url "usuarios:mobile" %}">Saiba mais<i class="fas fa-angle-right"></i></a>
+    </div>
+</div>
+<!-- Fim Serviços -->
+{% endblock content %}

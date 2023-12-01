@@ -3,16 +3,16 @@
 <footer class="footer">
     <ul class="sobre">
         <li><h3>Sobre</h3></li>
-        <li><a href="sobre.html">Quem somos</a></li>
-        <li><a href="sobre.html">Como a Yupix funciona</a></li>
-        <li><a href="sobre.html">Parcerias</a></li>
+        <li><a href="{% url "usuarios:aboutus" %}">Quem somos</a></li>
+        <li><a href="{% url "usuarios:aboutus" %}">Como a Yupix funciona</a></li>
+        <li><a href="{% url "usuarios:aboutus" %}">Parcerias</a></li>
     </ul>
     
     <ul class="serviços">
         <li><h3>Serviços</h3></li>
-        <li><a href="servicos.html">Categorias Yupix</a></li>
+        <li><a href="{% url "usuarios:services" %}">Categorias Yupix</a></li>
 
-        <li><a href="mobile.html">Downloads</a></li>
+        <li><a href="{% url "usuarios:mobile" %}">Downloads</a></li>
     </ul>
     
     <ul class="contatos">
@@ -40,7 +40,7 @@
     </ul>
     
     <div class="footer_absoluto">
-        <a href="index.html" class="logo"><h1>Yupix</h1></a>
+        <a href="{% url "usuarios:index" %}" class="logo"><h1>Yupix</h1></a>
     </div>
 </footer>
 <!-- Fim Rodapé -->

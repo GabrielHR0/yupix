@@ -1,0 +1,37 @@
+{% extends "global/base.html" %}
+{% load static %}
+
+{% block content %}
+
+<!-- Inicio Mobile -->
+<div class="servicos_categorias categorias_mobile bg_azul">
+    <div class="mesclar">
+        <h3>Mobile</h3>
+        <p>Baixe agora o nosso aplicativo em seu smartphone Android ou IOs, é rápido e fácil.</p>
+    </div>
+    
+    <ul>
+        <li><a class="botao_uber" href="https://play.google.com/store/apps/details?id=com.ubercab&uclick_id=1e3e3bed-1d47-4c1d-a82f-41a149feb678">Google Play: Yupix <i class="fas fa-download"></i></a></li>
+        <li><a class="botao_uber_99" href="https://play.google.com/store/apps/details?id=com.taxis99&hl=pt_BR">Google Play: Yupix servidor <i class="fas fa-download"></i></a></li>
+    </ul>
+    
+    <ul>
+       <li><a class="botao_uber" href="https://apps.apple.com/br/app/uber/id368677368">App Store: Yupix <i class="fas fa-download"></i></a></li>
+        <li><a class="botao_uber_99" href="https://apps.apple.com/br/app/99-carro-particular-e-t%C3%A1xi/id553663691">App Store: Yupix servidor <i class="fas fa-download"></i></a></li>
+    </ul>
+</div>
+<!-- Fim Mobile -->
+
+<!-- Serviços -->
+<div class="servicos servicos_inferior">
+
+    <div class="categorias">
+        <img src="{% static "global/img/categorias.png" %}" alt="Categorias">
+        <h4>Categorias</h4>
+        <p>Um Yupix para cada necessidade, descubra qual o tipo de Yupix que melhor se encaixa a suas necessidades e ao seu bolso.</p>
+        <a href="servicos.html">Saiba mais<i class="fas fa-angle-right"></i></a>
+    </div>
+
+   
+<!-- Fim Serviços -->
+{% endblock content %}

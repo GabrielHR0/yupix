@@ -38,7 +38,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="C:\Users\info4v\Documents\yupix_django\yupix\venv"
+VIRTUAL_ENV="C:\Users\gabri\OneDrive\Documentos\Sublime\yupix-1\venv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
