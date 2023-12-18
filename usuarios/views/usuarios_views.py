@@ -42,7 +42,7 @@ def register1(request):
         'usuarios/register1.html',
     )
 
-def register2(request):
+def create(request):
     return render(
         request,
         'usuarios/register2.html'

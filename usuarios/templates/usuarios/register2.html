@@ -18,7 +18,7 @@
         <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
         
         <!-- Estilo CSS -->
-        <link rel="stylesheet" type="text/css" href="css/estilo.css">
+        <link rel="stylesheet" type="text/css" href="{% static "global/css/style.css" %}">
 
         <!-- Favicon -->
         <link rel="icon" href="img/yupix_logo.png">
@@ -50,140 +50,180 @@
             <div class="row justify-content-center">
                 <div class="col-8">
                     <!-- Formulário -->
-                    <form class="needs-validation" novalidate name="form_cadastro" method="post" action="js/submit_user.jsp">
+                    <form class="needs-validation" novalidate name="form_cadastro" method="post" action="{% url "usuarios:create" %}">
+                        {% csrf_token %}
+                        {% for field in form %}
+                        {% if field.name == 'first_name'%}
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <label for="reg_nome">Primeiro Nome</label>
-                                <input type="text" class="form-control" id="reg_nome" name="reg_nome" required="required" placeholder="Matthew">
-                                <div class="invalid-feedback">Nome inválido</div>
+                                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                                {{ field }}
+                                {{ field.errors }}
+
+                                {% if field.help_text %}
+                                <div class="invalid-feedback">{{ field.help_text }}</div>
+                                {% endif %}
                             </div>
+                            {% elif field.name == 'last_name'%}
                             <div class="form-group col-md-6">
-                                <label for="reg_snome">Último Nome</label>
-                                <input type="text" class="form-control" id="reg_snome" name="reg_snome" required="required" placeholder="Mercer">
-                                <div class="invalid-feedback">Sobrenome inválido</div>
-                            </div> 
+                                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                                {{ field }}
+                                {{ field.errors }}
+
+                                {% if field.help_text %}
+                                <div class="invalid-feedback">{{ field.help_text }}</div>
+                                {% endif %}
+                            </div>
                         </div>
+                        {% endif %}
+                        {% if field.name == 'gender' %}
                         <div class="form-row">
                             <div class="form-group col-md-4">
-                                <label for="reg_sexo">Sexo</label>
-                                <select name="reg_sexo" id="reg_sexo" class="custom-select" required="required">
-                                    <option selected disabled value="">--</option>
-                                    <option value="M">Masculino</option>
-                                    <option value="F">Feminino</option>
-                                </select>
-                                <div class="invalid-feedback">Sexo inválido</div>
+                                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                                {{field}}
+                                {{field.errors}}
+
+                                {% if field.help_text %}
+                                <div class="invalid-feedback">{{ field.help_text }}</div>
+                                {% endif %}
                             </div>
+
+                            {% elif field.name == 'birth_date'%}
                             <div class="form-group col-md-4">
-                                <label for="reg_data">Data de Nascimento</label>
-                                <input type="date" class="form-control" id="reg_data" name="reg_data" required="required">
-                                <div class="invalid-feedback">Data de nascimento inválida</div>
+                                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                                {{field}}
+                                {{field.errors}}
+
+                                {% if field.help_text %}
+                                <div class="invalid-feedback">{{ field.help_text }}</div>
+                                {% endif %}
                             </div>
+
+                            {% elif field.name == 'cpf'%}
                             <div class="form-group col-md-4">
-                                <label for="reg_cpf">CPF</label>
-                                <input type="text" \
-                                minlength="11" maxlength="11" class="form-control" id="reg_cpf" \
-                                name="reg_cpf" required="required" placeholder="55566677700">
-                                <div class="invalid-feedback">CPF inválido</div>
+                                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                                {{field}}
+                                {{field.errors}}
+
+                                {% if field.help_text %}
+                                <div class="invalid-feedback">{{ field.help_text }}</div>
+                                {% endif %}
                             </div>
-                        </div>
+                        </div> 
+                        {% endif %}
+                        
+                        {% if field.name == 'address'%}
                         <div class="form-row">
                             <div class="form-group col">
-                                <label for="reg_rua">Rua/Avenida</label>
-                                <input type="text" class="form-control" id="reg_rua" name="reg_rua" required="required" placeholder="Rua Força Pública, 89">
-                                <div class="invalid-feedback">Rua inválida</div>
+                                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                                {{ field }}
+                                {{ field.errors }}
+
+                                {% if field.help_text %}
+                                <div class="invalid-feedback">{{ field.help_text }}</div>
+                                {% endif %}
                             </div>
                         </div>
+                        {% endif %}
+
+                        {% if field.name == 'city' %}
                         <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label for="reg_cidade">Cidade</label>
-                                <input type="text" class="form-control" id="reg_cidade" name="reg_cidade" required="required" placeholder="Guarulhos">
-                                <div class="invalid-feedback">Cidade inválida</div>
+                            <div class="col-md-6">
+                                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                                {{ field }}
+                                {{ field.errors }}
+
+                                {% if field.help_text %}
+                                <div class="invalid-feedback">{{ field.help_text }}</div>
+                                {% endif %}
                             </div>
+
+                            {% elif field.name == 'state'%}
                             <div class="form-group col-md-2">
-                                <label for="reg_estado">Estado</label>
-                                <select name="reg_estado" id="reg_estado" class="custom-select" required="required">
-                                    <option selected disabled value="">--</option>
-                                    <option value="SP">AC</option>
-                                    <option value="SP">AM</option>
-                                    <option value="BA">BA</option>
-                                    <option value="BA">CE</option>
-                                    <option value="BA">DF</option>
-                                    <option value="SP">ES</option>
-                                    <option value="BA">GO</option>
-                                    <option value="BA">MA</option>
-                                    <option value="BA">MT</option>
-                                    <option value="BA">MS</option>
-                                    <option value="MG">MG</option>
-                                    <option value="BA">PA</option>
-                                    <option value="BA">PB</option>
-                                    <option value="BA">PR</option>
-                                    <option value="BA">PE</option>
-                                    <option value="BA">PI</option>
-                                    <option value="BA">RJ</option>
-                                    <option value="BA">RN</option>
-                                    <option value="BA">RS</option>
-                                    <option value="BA">RO</option>
-                                    <option value="BA">RR</option>
-                                    <option value="BA">SC</option>
-                                    <option value="BA">SP</option>
-                                    <option value="BA">SE</option>
-                                    <option value="BA">TO</option>
-                                </select>
-                                <div class="invalid-feedback">Estado inválido</div>
+                                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                                {{field}}
+                                {{field.errors}}
+
+                                {% if field.help_text %}
+                                <div class="invalid-feedback">{{ field.help_text }}</div>
+                                {% endif %}
                             </div>
+                            {% elif field.name == 'zip_code'%}
                             <div class="form-group col-md-4">
-                                <label for="reg_cep">CEP</label>
-                                <input type="text" minlength="8" maxlength="8" class="form-control" id="reg_cep" name="reg_cep" required="required" placeholder="55555000">
-                                <div class="invalid-feedback">CEP inválido</div>
+                                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                                {{field}}
+                                {{field.errors}}
+
+                                {% if field.help_text %}
+                                <div class="invalid-feedback">{{ field.help_text }}</div>
+                                {% endif %}
                             </div>
                         </div>
+                        {% endif %}
+
+                        {% if field.name == 'email' %}
                         <div class="form-row">
                             <div class="form-group col-md-8">
-                                <label for="reg_email">E-mail</label>
+                                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
                                 <div class="input-group">
-                                    <input type="email" class="form-control" id="reg_email" name="reg_email" required="required" aria-label="email" aria-describedby="basic-addon2" placeholder="marisha.ray@critrole.com">
-                                    <div class="input-group-append">
-                                        <span class="input-group-text" id="basic-addon2">@exemplo.com</span>
-                                    </div>
-                                    <div class="invalid-feedback">Email inválido</div>
+                                {{ field }}
                                 </div>
+                                {{ field.errors }}
+
+                                {% if field.help_text %}
+                                <div class="invalid-feedback">{{ field.help_text }}</div>
+                                {% endif %}
                             </div>
+                            {% elif field.name == 'phone'%}
                             <div class="form-group col-md-4">
-                                <label for="reg_fone">Telefone</label>
+                                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
                                 <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="basic-addon3">(DDD)</span>
-                                    </div>
-                                    <input type="text" minlength="11" maxlength="11" class="form-control" id="reg_fone" name="reg_fone" required="required" aria-label="telefone" aria-describedby="basic-addon3" placeholder="11949580307">
-                                    <div class="invalid-feedback">Telefone inválido</div>
+                                    {{ field }}
                                 </div>
+                                    {{ field.errors }}
+                                
+                                    {% if field.help_text %}
+                                    <div class="invalid-feedback">{{ field.help_text }}</div>
+                                    {% endif %}
                             </div>
                         </div>
+                        {% endif %}
+
+                        {% if field.name == 'password' %}
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <label for="reg_password">Senha</label>
-                                <input type="password" minlength="8" maxlength="20" class="form-control" id="reg_password" name="reg_password" required="required">
+                                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                                <div class="input-group">
+                                {{ field }}
+                                </div>
+                                {{ field.errors }}
+
+                                {% if field.help_text %}
+                                <div class="invalid-feedback">{{ field.help_text }}</div>
+                                {% endif %}
                                 <small class="form-text text-muted">Senha deve conter no mínimo 8 dígitos e no máximo 20 dígitos</small>
                                 <div class="valid-feedback">Senha forte</div>
                                 <div class="invalid-feedback">Senha fraca</div>
                             </div>
+                            {% elif field.name == 'confirm_password'%}
                             <div class="form-group col-md-6">
-                                <label for="reg_password">Confirmar Senha</label>
-                                <input type="password" minlength="8" maxlength="20" class="form-control" id="reg_password" name="reg_password" required="required">
-                                <div class="valid-feedback">Senha forte</div>
-                                <div class="invalid-feedback">Senha fraca</div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required="required">
-                                <label class="form-check-label" for="reg_temos_condicoes">Li e aceito os termos e condições</label>
-                                <div class="invalid-feedback">
-                                    Você deve concordar com os termos e condições antes de concluir o cadastro.
+                                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                                <div class="input-group">
+                                    {{ field }}
                                 </div>
+                                    {{ field.errors }}
+    
+                                    {% if field.help_text %}
+                                    <div class="invalid-feedback">{{ field.help_text }}</div>
+                                    {% endif %}
                             </div>
                         </div>
+                        {% endif %}
+
+                        {% endfor %}
+
                         <div class="row mb-5">
+
                             <div class="col">
                                 <button class="btn btn-primary btn-lg btn-block" type="submit" id="button_cadastro">Cadastrar</button>
                             </div>
