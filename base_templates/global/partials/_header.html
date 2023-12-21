@@ -11,9 +11,14 @@
             <li><a href="{% url "usuarios:services" %}">Serviços</a></li>
             <li><a href="{% url "usuarios:contato" %}">Contato</a></li>
             <i class="far fa-user"></i>
+            {% if user.is_authenticated %}
+            <li><a href="{% url "usuarios:profile" %}">{{user.first_name}}</a></li>
+        </ul>
+            {% else %}
             <li><a href="{% url "usuarios:login" %}">Entrar</a></li>
             <li><a href="{% url "usuarios:register2" %}">Cadastrar</a></li>
         </ul>
+            {% endif %}
     </nav>
     
 </header>

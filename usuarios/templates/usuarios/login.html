@@ -20,7 +20,7 @@
         <link rel="stylesheet" type="text/css" href="{% static "global/css/style.css" %}">
 
         <!-- Favicon -->
-        <link rel="icon" href="{% static "global/img/uber_favicon.png" %}">
+        <link rel="icon" href="{% static "global/img/yupix_logo.png" %}">
 
     </head>
     
@@ -44,30 +44,60 @@
                 <div class="col-6">
 
                     <!-- Formulário -->
-                    <form class="needs-validation" novalidate name="form_login" method="post" action="user_page.jsp">
-                        
+                    <form class="needs-validation" novalidate name="form_login" method="post" action="{% url "usuarios:login" %}">
                         <div class="form-group mb-5">
-                            <label for="log_email">E-mail</label>
-                            <div class="input-group">
-                                <input type="text" class="form-control" id="log_email" name="log_email" required="required" aria-label="email" aria-describedby="basic-addon2">
-                                <div class="input-group-append">
-                                    <span class="input-group-text" id="basic-addon2">@exemplo.com</span>
+                            {% csrf_token %}
+                            {% for field in form %}
+                                {% if field.name == 'username'%}
+                                    <div class="form-group mb-5">
+                                        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                                        <div class="input-group">
+                                            {{ field }}
+                                            {{ field.errors }}
+                                            <div class="input-group-append">
+                                                <span class="input-group-text" id="basic-addon2">@exemplo.com</span>
+                                            </div>
+                                            <div class="invalid-feedback">Email inválido
+                                                {% if field.help_text %}
+                                                <p class="help-text">{{ field.help_text }}</p>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endif %}
+
+                                {% if field.name == 'password'%}
+                                <div class="form-row mb-5">
+                                    <div class="form-group col">
+                                        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                                        <div class="input-group">
+                                            {{ field }}
+                                            {{ field.errors }}
+                                            <div class="invalid-feedback">
+                                                {% if field.help_text %}
+                                                <p class="help-text">{{ field.help_text }}</p>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="invalid-feedback">Email inválido</div>
+                            {% endif %}
+                            {% endfor %}
                             </div>
-                        </div>
-                        
-                        <div class="form-row mb-5">
-                            <div class="form-group col">
-                                <label for="log_password">Senha</label>
-                                <input type="password" minlength="8" maxlength="20" class="form-control" id="log_password" name="log_password" required="required">
-                                <div class="invalid-feedback">Senha inválida</div>
+
+                            {% if form.non_field_errors %}
+                            <div class="form-content">
+                                <div class="form-group">
+                                <div class="message error">
+                                    {{ form.non_field_errors }}
+                                </div>
+                                </div>
                             </div>
-                        </div>
+                            {% endif %}
 
                         <div class="row mb-5">
                             <div class="col">
-                                <button class="btn btn-primary btn-lg btn-block" type="submit">Logar</button>
+                                <button class="btn btn-primary btn-lg btn-block" type="submit" >Logar</button>
                             </div>
                             <div class="col">
                                 <a href="{% url "usuarios:index" %}" class="btn btn-danger btn-lg btn-block">Voltar</a>

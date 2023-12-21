@@ -1,0 +1,15 @@
+{% extends "global/base_profile.html" %}
+{% load static %}
+
+{% block content %}
+    <h2><a href="{% url "usuarios:logout" %}">logout</a></h2>
+    <div class="servicos_categorias bg_azul">
+        <ul class="lista_contato ul">
+            <li class="lista_contato li"><b>Nome Completo</b>: {{user.first_name}} {{user.last_name}}</li><br>
+            <li class="lista_contato li"><b>Data de nascimento</b>: {{user.birth_date}} </li><br>
+            <li class="lista_contato li"><b>CPF</b>: {{user.cpf}} </li><br>
+            <li class="lista_contato li"><b>Endereço</b>: {{user.address}} </li><br>  
+        </ul>
+
+    </div> 
+{% endblock %}

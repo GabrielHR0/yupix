@@ -1,4 +1,7 @@
 from django.shortcuts import get_object_or_404, render
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
+
 
 #from usuarios.models import 
 
@@ -36,7 +39,7 @@ def login(request):
         'usuarios/login.html',
     )
 
-def register1(request):
+def create1(request):
     return render(
         request,
         'usuarios/register1.html',
@@ -47,6 +50,18 @@ def create(request):
         request,
         'usuarios/register2.html'
         )
+
+@login_required
+def profile(request):
+    context = {
+        'site_title':'Perfil',
+        'header':'{{user.first_name}}',
+        'descripition':'Seus dados pessoais:'
+    }
+    return render(
+        request,
+        'usuarios/profile.html',
+        context,)
 
 def services(request):
     context = {
