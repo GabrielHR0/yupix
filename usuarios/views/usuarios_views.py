@@ -1,6 +1,7 @@
 from django.shortcuts import get_object_or_404, render
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+from usuarios.models import UserRegister
 
 
 #from usuarios.models import 
@@ -52,16 +53,10 @@ def create(request):
         )
 
 @login_required
+
 def profile(request):
-    context = {
-        'site_title':'Perfil',
-        'header':'{{user.first_name}}',
-        'descripition':'Seus dados pessoais:'
-    }
-    return render(
-        request,
-        'usuarios/profile.html',
-        context,)
+    user_profile = UserRegister.objects.get(user=request.user)
+    return render(request, 'usuarios/profile.html', {'user_profile': user_profile})
 
 def services(request):
     context = {

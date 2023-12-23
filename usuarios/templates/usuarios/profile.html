@@ -2,13 +2,21 @@
 {% load static %}
 
 {% block content %}
-    <h2><a href="{% url "usuarios:logout" %}">logout</a></h2>
-    <div class="servicos_categorias bg_azul">
-        <ul class="lista_contato ul">
-            <li class="lista_contato li"><b>Nome Completo</b>: {{user.first_name}} {{user.last_name}}</li><br>
-            <li class="lista_contato li"><b>Data de nascimento</b>: {{user.birth_date}} </li><br>
-            <li class="lista_contato li"><b>CPF</b>: {{user.cpf}} </li><br>
-            <li class="lista_contato li"><b>Endereço</b>: {{user.address}} </li><br>  
+
+<h1></h1><br><h1></h1><h1></h1><br>
+
+    <div class>
+        <ul>
+            <li class><b>Nome Completo</b>: {{user_profile.first_name}} {{user_profile.last_name}}</li><br>
+            <li class><b>Data de nascimento</b>: {{user_profile.birth_date}} </li><br>
+            <li class><b>CPF</b>: {{user_profile.cpf}} </li><br>
+            <li class><b>Endereço</b>: {{user_profile.address}} </li><br>
+            <li class><b>Cidade</b>: {{user_profile.city}} </li><br>
+            <li class><b>Estado</b>: {{user_profile.state}} </li><br>
+            <li class><b>CEP</b>: {{user_profile.zip_code}} </li><br>
+            <li class><b>E-mail</b>: {{user_profile.email}} </li><br>
+            <li class><b>Telefone</b>: {{user_profile.phone}} </li><br>
+            <li><a class="form_botao" href="{% url "usuarios:logout" %}">logout</a><li>
         </ul>
 
     </div> 
