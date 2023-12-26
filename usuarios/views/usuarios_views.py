@@ -1,7 +1,8 @@
 from django.shortcuts import get_object_or_404, render
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from usuarios.models import UserRegister
+from usuarios.models import UserRegister, ServerRegister
+from usuarios.forms import RegisterFormServer, SearchForm
 
 
 #from usuarios.models import 
@@ -52,11 +53,30 @@ def create(request):
         'usuarios/register2.html'
         )
 
-@login_required
-
+@login_required(login_url='usuarios/login.html')
 def profile(request):
     user_profile = UserRegister.objects.get(user=request.user)
     return render(request, 'usuarios/profile.html', {'user_profile': user_profile})
+
+@login_required(login_url='usuarios/login.html')
+def search(request):
+    print("Entrou na view search")
+
+    if request.method == 'POST':
+        form = SearchForm(request.POST)
+        if form.is_valid():
+            search_service = form.cleaned_data.get('search_service', None)
+            print("search_service:", search_service)  # Adicione esta linha para debug
+            user_profiles = ServerRegister.objects.all()
+
+            if search_service:
+                user_profiles = user_profiles.filter(service=search_service)
+
+            return render(request, 'usuarios/search.html', {'user_profiles': user_profiles, 'form': form})
+    else:
+        form = SearchForm()
+
+    return render(request, 'usuarios/search.html', {'form': form})
 
 def services(request):
     context = {

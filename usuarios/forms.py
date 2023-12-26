@@ -1,6 +1,7 @@
 from django import forms
 from django.core.exceptions import ValidationError
 from . import models
+from usuarios.models import ServerRegister
 from django.contrib.auth.forms import UserCreationForm
 
 class RegisterForm(forms.ModelForm):
@@ -107,3 +108,18 @@ class RegisterFormServer(forms.ModelForm):
             return super().clean()
 
         return super().clean()
+
+class SearchForm(forms.Form):
+    services = ServerRegister.objects.values_list('service', flat=True).distinct()
+    service_choices = [('', 'Todos os Serviços')] + [(service, service) for service in services]
+    
+    search_service = forms.ChoiceField(
+        choices=service_choices,
+        required=False,
+        label='Buscar por serviço',
+        widget=forms.Select(attrs={'class': 'form-control'})
+    )
+    def clean_search_service(self):
+        search_service = self.cleaned_data['search_service']
+        print(f"Valor do campo search_service: {search_service}")
+        return search_service

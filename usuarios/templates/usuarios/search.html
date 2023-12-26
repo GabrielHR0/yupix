@@ -1,0 +1,36 @@
+{% extends 'global/base_profile.html' %}
+
+{% block content %}
+<div class="content">
+    <h2 class="content ">Buscar Servidores</h2>
+    <div class= "col-8">
+        <form method="post" class="needs-validation" action="{% url 'usuarios:search' %}">
+            {% csrf_token %}
+            <div class="form_grupo estrutura">
+                <div class="form_campo">
+                {{ form.as_p }}
+                
+            <div clas="botoes_uber_eats"><button type="submit" class="form_botao">Pesquisar</button>
+            </div>
+        </form>
+
+
+    {% if user_profiles %}
+        <p>Resultados para o serviço: "{{ form.search_service.value }}"</p>
+        <div class="">
+            <ul>
+            {% for profile in user_profiles %}
+                <li><b>{{ profile.first_name }} {{ profile.last_name }}</b> - {{ profile.service }}/
+                    <b>Endereço: </b>{{profile.address}}, {{profile.city}}-{{profile.state}}</li>
+                    <hr><br>
+                <!-- Adicione outros campos conforme necessário -->
+            {% endfor %}
+            </ul>
+        {% else %}
+            <p>Nenhum resultado encontrado.</p>
+        {% endif %}
+        <div>
+    </div>
+</div>
+
+{% endblock %}

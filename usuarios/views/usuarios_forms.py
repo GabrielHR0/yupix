@@ -6,6 +6,7 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib import auth, messages
 from django.db import IntegrityError
 from usuarios.models import UserRegister, ServerRegister
+from django.db.models import Q
 
 def register2(request):
     if request.method == 'POST':

@@ -2,13 +2,16 @@
 <html lang="pt-BR">
 <head>
     {% include "global/partials/_head.html" %}
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    
 </head>
 <body>
     <div class="estrutura">
         {% include "global/partials/_header.html" %}
         {% include "global/partials/_sidenav.html" %}
         <main class="content">
-            {% include "global/partials/_starter_profile.html" %}
             {% block content %}{% endblock content %}
         </main>
         {% include "global/partials/_footer.html" %}

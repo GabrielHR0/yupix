@@ -14,6 +14,7 @@ urlpatterns = [
     path('services/', views.services, name='services'),
     path('aboutus/', views.aboutus, name='aboutus'),
     path('mobile/', views.mobile, name='mobile'),
+    path('search/', views.search, name='search'),
     
     path('create/', views.register2, name="create"),
 ]

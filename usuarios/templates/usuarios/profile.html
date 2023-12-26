@@ -3,10 +3,16 @@
 
 {% block content %}
 
-<h1></h1><br><h1></h1><h1></h1><br>
+    <div class="conheca_nos">
+        <ul class="">
+            
+            <div class="content">
+            <li><h2>{{user_profile.first_name}} {{user_profile.last_name}}</h2></li>
+            <li><p>Seu perfil de usuário:</p></li>
+            </div>
 
-    <div class>
-        <ul>
+            <br>
+
             <li class><b>Nome Completo</b>: {{user_profile.first_name}} {{user_profile.last_name}}</li><br>
             <li class><b>Data de nascimento</b>: {{user_profile.birth_date}} </li><br>
             <li class><b>CPF</b>: {{user_profile.cpf}} </li><br>
@@ -18,6 +24,5 @@
             <li class><b>Telefone</b>: {{user_profile.phone}} </li><br>
             <li><a class="form_botao" href="{% url "usuarios:logout" %}">logout</a><li>
         </ul>
-
     </div> 
 {% endblock %}
