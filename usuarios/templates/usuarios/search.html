@@ -16,13 +16,21 @@
 
 
     {% if user_profiles %}
+        {% if form.search_service.value %}
         <p>Resultados para o serviço: "{{ form.search_service.value }}"</p>
+        <br>
+        {% else %} 
+        <p> Todos os serviços: <p>
+        <br>
+        {% endif %}
         <div class="">
             <ul>
             {% for profile in user_profiles %}
-                <li><b>{{ profile.first_name }} {{ profile.last_name }}</b> - {{ profile.service }}/
-                    <b>Endereço: </b>{{profile.address}}, {{profile.city}}-{{profile.state}}</li>
-                    <hr><br>
+                <li><b>{{ profile.first_name }} {{ profile.last_name }}</b> - {{ profile.service }} <br>
+                    <b>Endereço: </b>{{profile.address}}, {{profile.city}}-{{profile.state}} <br>
+                    <b>Contato: </b>{{profile.phone}}
+                </li>
+                <br><hr><br>
                 <!-- Adicione outros campos conforme necessário -->
             {% endfor %}
             </ul>

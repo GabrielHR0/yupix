@@ -53,12 +53,12 @@ def create(request):
         'usuarios/register2.html'
         )
 
-@login_required(login_url='usuarios/login.html')
+@login_required(login_url='usuarios:login')
 def profile(request):
     user_profile = UserRegister.objects.get(user=request.user)
     return render(request, 'usuarios/profile.html', {'user_profile': user_profile})
 
-@login_required(login_url='usuarios/login.html')
+@login_required(login_url='usuarios:login')
 def search(request):
     print("Entrou na view search")
 
