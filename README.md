@@ -17,6 +17,7 @@ Acesse http://localhost:8000/ no seu navegador. Você deve ver uma mensagem diz 
     Parar o servidor Django ctrl + c.
 
 <br>
-User e senha de superusuário: <br>User: admin <br>senha: admin
+# User e senha de superusuário: 
+<br>User: admin <br>senha: admin
 
 
