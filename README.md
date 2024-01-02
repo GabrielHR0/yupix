@@ -16,4 +16,7 @@ Projeto para disciplina de desenvolvimento de software
 Acesse http://localhost:8000/ no seu navegador. Você deve ver uma mensagem diz que o servidor está rodando. Se não vir essa mensagem, tente reiniciar o servidor ou checar se o Django foi configurado corretamente. <br>
     Parar o servidor Django ctrl + c.
 
+<br>
+User e senha de superusuário: <br>User: admin <br>senha: admin
+
 
