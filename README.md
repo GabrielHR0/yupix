@@ -6,7 +6,7 @@ Projeto para disciplina de desenvolvimento de software
 #3 Executar o seguinte comando para criar um novo ambiente virtual: <br>
     python -m venv venv <br>
 #4 Ativar o novo ambiente virtual (executar o que segue no novo terminal): <br>
-    <p>.\venv\Scripts\activate<p> <br>
+    .\venv\Scripts\activate <br>
 #5 Instalar a biblioteca django usando pip, dentro do novo ambiente virtual. Utilize o comando abaixo: <br>
     pip install django <br> 
 #6 Digitar "y" quando for pedido se você quer instalar as dependências também. <br>
