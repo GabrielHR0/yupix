@@ -1,7 +1,7 @@
 # yupix
 Projeto para disciplina de desenvolvimento de software
 
-#1 Excluir o repositório venv
+#1 Excluir o repositório venv <br>
 #2 Criar um novo terminal
 #3 Executar o seguinte comando para criar um novo ambiente virtual:
     python -m venv venv
